@@ -16,6 +16,12 @@ html,
   height: 100vh;
 }
 
+.main {
+  background-image: url('../assets/background.svg');
+  background-size: cover;
+  background-position: center;
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -25,19 +31,14 @@ html,
 }
 
 .sidebar {
-  background-color: #d9cbb0;
+  background-color: #F3ECE3;
   width: 200px;
-  padding: 40px;
+  padding: 4px;
   color: #333;
 }
 
-.sidebar .navbar-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .logo {
+  margin: 0 2rem;
   font-size: 1.5rem;
   font-weight: bold;
   color: #333;
@@ -93,11 +94,33 @@ header p {
 
 /* RESPONSIVIDADE */
 @media (max-width: 770px) {
-
-  
-
   .container {
     flex-direction: column;
+    height: auto;
+    z-index: 1;
+    position: relative;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .sidebar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .sidebar nav a {
+    margin-left: 0;
   }
 
   .desktop-menu {
@@ -105,8 +128,10 @@ header p {
   }
 
   .sidebar {
-    width: 100%;
     padding: 20px;
+    width: 100vw;
+    box-sizing: border-box;
+    margin: 0;
   }
 
   .menu-toggle {
@@ -115,16 +140,17 @@ header p {
 
   .mobile-menu {
     position: absolute;
-    top: 40px;
-    right: auto;
-
+    top: 50px;
+    left: 0;
     z-index: 1000;
-    background-color: #d9cbb0;
+    background-color: #F3ECE3;
     padding: 15px;
     border-radius: 4px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    width:  max-content;
+    width: max-content;
     min-width: 150px;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
   }
 
   .mobile-menu a {
@@ -132,15 +158,6 @@ header p {
     border-right: 2px solid #f3e0c4;
     padding: 8px;
     border-radius: 4px;
-  }
-
-  .sidebar nav a {
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding: 8px;
-    gap: 6px;
-    opacity: 0.8;
   }
 
   .sidebar .desktop-menu {
@@ -160,8 +177,8 @@ header p {
   }
 }
 
-@media (min-width: 771px) {
-
+/* @media (min-width: 771px) {
+  
   .menu-toggle {
     display: none;
   }
@@ -179,7 +196,7 @@ header p {
 
   .sidebar {
     width: 200px;
-    padding: 40px;
+    padding: 8px;
   }
 
   .mobile-menu {
@@ -190,4 +207,4 @@ header p {
   .logo {
     display: block;
   }
-}
+} */
