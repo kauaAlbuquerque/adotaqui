@@ -68,11 +68,6 @@ const RegisterPet = () => {
               <option value="Macho">Macho</option>
               <option value="Fêmea">Fêmea</option>
             </select>
-            <select name="adopted" value={form.adopted} onChange={handleChange} required>
-              <option value="" required>Disponibilidade para adoção</option>
-              <option value="true">Adotado</option>
-              <option value="false">Disponível</option>
-            </select>
             <select name="type_of_animal" value={form.type_of_animal} onChange={handleChange} required>
               <option value="" required>Selecione o tipo de Pet</option>
               <option value="Cão">Cão</option>

@@ -19,6 +19,8 @@
   width: 200px;
   padding: 4px;
   color: #333;
+  max-height: 100vh; 
+  overflow-y: auto;
 }
 
 .sidebar .navbar-content {

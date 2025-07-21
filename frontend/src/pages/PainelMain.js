@@ -13,6 +13,7 @@ export default function PainelMain() {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
+
         <div className="container">
             <div className={`menu-toggle ${menuOpen ? 'open' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>
             </div>  
