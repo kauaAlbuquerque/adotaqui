@@ -12,6 +12,7 @@ export default function SearchForPets() {
   const [pets, setPets] = useState([]);
   const [allPets, setAllPets] = useState([]);
   const [selectedPet, setSelectedPet] = useState(null);
+
   const navigate = useNavigate();
 
   const [filters, setFilters] = useState({
@@ -22,6 +23,19 @@ export default function SearchForPets() {
     neutered: [],
     age: '',
   });
+
+  // Função para adotar um pet
+  const adoptedTrue = (petId) => {
+    axios.patch(`http://localhost:3001/pets/adopted/${petId}`)
+      .then(response => {
+        console.log(response.data.message);
+        alert("Pet adotado Com sucesso!✅")
+        getPets();
+      })
+      .catch(error => {
+        console.error('Erro ao adotar pet:', error);
+      });
+  }
 
   /* ---------- carrega todos os pets 1x ---------- */
   const getPets = async () => {
@@ -127,7 +141,7 @@ export default function SearchForPets() {
                     </p>
                   </div>
                   <div className="action-buttons">
-                    <button className="btn btn-adopt">
+                    <button className="btn btn-adopt" onClick={() => adoptedTrue(pet.id)}>
                       <HandHeartIcon size={20} /> Adotar
                     </button>
                     <button

@@ -84,3 +84,23 @@ exports.buscarRacasPorTipo = (tipos) => {
         });
     });
 };
+
+exports.marcarComoAdotado = (id) => {
+  const query = 'UPDATE pets SET adopted = true WHERE id = ?';
+  return new Promise((resolve, reject) => {
+    db.query(query, [id], (err, result) => {
+      if (err) return reject(err);
+      resolve(result);
+    });
+  });
+};
+
+exports.contarAnimaisAdotados = () => {
+  return new Promise((resolve, reject) => {
+    db.query('SELECT COUNT(*) as count FROM pets WHERE adopted = true', (err, results) => {
+      if (err) reject(err);
+      else resolve(results[0].count);
+    });
+  });
+};
+

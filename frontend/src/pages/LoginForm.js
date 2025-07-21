@@ -33,14 +33,21 @@ export default function LoginForm() {
             await validationLogin.validate(dados);
 
             // Enviar dados ao servidor
-            const res = await axios.post("http://localhost:3001/adm", dados);
+            const res = await axios.post("http://localhost:3001/admin", dados);
             console.log(res);
             navigate("/painel-main");
 
         } catch (err) {
             // 1. Erros de validação Yup
-            if (err.name === "ValidationError") {
-                if (err.path === "usuario" || err.path === "senha") erroUsuarioRef.current.textContent = err.message;
+            if (err instanceof yup.ValidationError) {
+                err.inner.forEach((error) => {
+                    if (error.path === "usuario") {
+                        erroUsuarioRef.current.textContent = error.message;
+                    }
+                    if (error.path === "senha") {
+                        erroSenhaRef.current.textContent = error.message;
+                    }
+                });
                 return;
             }
 

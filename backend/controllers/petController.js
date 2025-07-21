@@ -88,3 +88,27 @@ exports.getBreeds = async (req, res) => {
         res.status(500).json({ error: 'Erro ao buscar raças' });
     }
 };
+
+exports.adotarPet = async (req, res) => {
+    try {
+        const { id } = req.params;
+        await petDAO.marcarComoAdotado(id);
+        res.json({ message: 'Pet adotado com sucesso!' });
+    } catch (error) {
+        console.error('Erro ao adotar o pet:', error);
+        res.status(500).json({ error: 'Erro ao adotar o pet' });
+    }
+};
+
+exports.getAdoptedCount = async (req, res) => {
+  try {
+    const count = await petDAO.contarAnimaisAdotados();
+    res.json({ adoptedCount: count });
+    console.log(res.data);
+  } catch (error) {
+    console.error('Erro ao contar pets adotados:', error);
+    res.status(500).json({ error: 'Erro ao contar pets adotados' });
+  }
+};
+
+
