@@ -130,10 +130,12 @@ Utilize um usuário já cadastrado manualmente no banco de dados para acessar fu
 
 ---
 
-## 👤 Autores
+👥 Autores
 
-* Kauã Albuquerque
-* Luís Henrique
+Este projeto foi desenvolvido em conjunto por:
+
+- **Kauã Albuquerque** – [@kauaAlbuquerque](https://github.com/kauaAlbuquerque)  
+- **Luís Henrique** – [@luisdasilvahenrique](https://github.com/luisdasilvahenrique)
 
 ---
 
